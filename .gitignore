@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environment
+venv/
+env/
+
+# Database
+src/database/*
+
+# Replays (arquivos de vídeo grandes)
+src/replays/*.mp4
+src/replays/*.avi
+src/replays/*.mov
+!src/replays/.gitkeep
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Flask
+instance/

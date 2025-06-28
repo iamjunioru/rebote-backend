@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+h1 {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.melancolia {
+    opacity: 0.6;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background: #fff;
+    color: #000;
+}
+
+pre {
+    background: #111;
+    padding: 15px;
+    border-radius: 3px;
+    text-align: left;
+    font-size: 0.8rem;
+    overflow-x: auto;
+    margin-top: 10px;
+    opacity: 0.9;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.result-error {
+    border-left: 3px solid #a15454;
+}
+
+.result-success {
+    border-left: 3px solid #7fbb7f;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0 5px;
+    }
+    
+    h1 {
+        margin-bottom: 20px;
+    }
+    
+    .melancolia {
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+    }
+    
+    button {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    pre {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, .melancolia {
+        font-size: 0.9rem;
+    }
+    
+    button {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+    
+    pre {
+        padding: 8px;
+        font-size: 0.6rem;
+    }
+}

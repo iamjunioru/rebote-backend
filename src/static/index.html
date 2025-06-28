@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sistema rebote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>sistema rebote-backend</h1>
+        
+        <p class="melancolia" id="mensagem-melancolia"></p>
+        
+        <button onclick="verificarStatus()">verificar status do sistema</button>
+        <pre id="resultado"></pre>
+    </div>
+
+    <script>
+        const mensagensMelancolicas = [
+            "aguardando conexões...",
+            "servidores em modo de espera...",
+            "processando requisições silenciosamente...",
+            "monitorando o tráfego de dados...",
+            "sistema funcionando nos bastidores...",
+            "códigos executando em segundo plano...",
+            "mantendo a infraestrutura ativa...",
+            "verificando integridade dos serviços..."
+        ];
+
+        // random msg
+        document.getElementById('mensagem-melancolia').textContent = 
+            mensagensMelancolicas[Math.floor(Math.random() * mensagensMelancolicas.length)];
+
+        function exibirResultado(data, isError = false) {
+            const elemento = document.getElementById('resultado');
+            elemento.textContent = JSON.stringify(data, null, 2);
+            elemento.className = isError ? 'result-error' : 'result-success';
+        }
+
+        async function verificarStatus() {
+            try {
+                const response = await fetch('http://localhost:5000/api/replay/status');
+                if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+                const data = await response.json();
+                exibirResultado({ status: 'sistema online', data: data });
+            } catch (error) {
+                exibirResultado({ erro: 'sistema offline ou inacessível', detalhes: error.message }, true);
+            }
+        }
+    </script>
+</body>
+</html>
